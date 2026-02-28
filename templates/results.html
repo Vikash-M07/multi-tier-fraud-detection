@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Batch Fraud Results</title>
+</head>
+
+<body>
+
+<h1>CSV Fraud Analysis Results</h1>
+
+<table border="1">
+
+<tr>
+<th>Fingerprint</th>
+<th>Risk Score</th>
+<th>Status</th>
+</tr>
+
+{% for result in results %}
+
+<tr>
+<td>{{ result.fingerprint }}</td>
+<td>{{ result.risk_score }}</td>
+<td>{{ result.status }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Go Back</a>
+
+</body>
+</html>

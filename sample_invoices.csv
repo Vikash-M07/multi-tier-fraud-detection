@@ -1,0 +1,6 @@
+invoice_no,supplier,distributor,retailer,amount
+INV001,SupplierA,Dist1,RetailX,12000
+INV002,SupplierB,Dist2,RetailY,5000
+INV003,SupplierA,Dist1,RetailZ,30000
+INV004,SupplierC,Dist3,RetailX,7000
+INV005,SupplierD,Dist2,RetailY,40000

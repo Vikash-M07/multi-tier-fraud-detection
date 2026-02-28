@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TIERA</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #1e293b;
+            padding: 30px 20px;
+            height: 100vh;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 40px;
+            color: #3b82f6;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .sidebar a:hover {
+            background: #334155;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: #334155;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #334155;
+        }
+
+        tr:nth-child(even) {
+            background: #1f2937;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;">TIERA</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Supply Network</a>
+    <a href="#">Fraud Alerts</a>
+    <a href="#">Invoices</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+
+    <h1>Fraud Intelligence Dashboard</h1>
+
+    <div class="stats">
+        <div class="stat-box">
+            <h3>124</h3>
+            <p>Total Suppliers</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>18</h3>
+            <p>Fraud Alerts</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>92%</h3>
+            <p>System Accuracy</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Analyze Invoice</h2>
+        <form method="POST">
+            <input name="supplier_frequency" placeholder="Supplier Frequency" required>
+            <input name="invoice_amount" placeholder="Invoice Amount" required>
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Fraud Risk Trends</h2>
+        <canvas id="fraudChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Recent Transactions</h2>
+        <table>
+            <tr>
+                <th>Supplier</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>ABC Corp</td>
+                <td>$12,000</td>
+                <td style="color: red;">FRAUD</td>
+            </tr>
+            <tr>
+                <td>XYZ Ltd</td>
+                <td>$4,500</td>
+                <td style="color: lightgreen;">SAFE</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    const ctx = document.getElementById('fraudChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Fraud Score',
+                data: [12, 19, 7, 14, 22],
+                borderColor: '#3b82f6',
+                fill: false
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
